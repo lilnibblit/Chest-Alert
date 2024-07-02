@@ -7,7 +7,7 @@
 	},
 	"id": "lilnibblit.chestalert",
 	"name": "Chest Alert",
-	"version": "v1.0.0",
+	"version": "v1.0.1",
 	"developer": "lilnibblit",
 	"description": "This mod spawns exclamation mark near the chests button if you have chest(s) ready.",
 	"repository": "https://github.com/lilnibblit/Chest-Alert",
