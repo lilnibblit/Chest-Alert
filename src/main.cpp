@@ -2,7 +2,7 @@
 using namespace geode::prelude;
 
 
-$execute {
+$on_mod(Loaded) {
 	// Getting chest data so user doesnt have to open the chest menu
 	GameLevelManager* glm = GameLevelManager::sharedState();
 	glm->getGJRewards(0);
