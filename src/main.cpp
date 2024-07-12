@@ -1,7 +1,6 @@
 #include <Geode/Geode.hpp>
 using namespace geode::prelude;
 
-
 $on_mod(Loaded) {
 	// Getting chest data so user doesnt have to open the chest menu
 	GameLevelManager* glm = GameLevelManager::sharedState();
@@ -20,14 +19,15 @@ class $modify(MyMenuLayer, MenuLayer) {
 		mark->setScale(0.55f);
 		mark->setVisible(false);
 
-		GameStatsManager* gsm;
-
-		gsm = GameStatsManager::sharedState();
-		if (gsm->m_rewardItems->count() == 0) {
+		if (GameStatsManager::sharedState()->m_rewardItems->count() == 0) {
 			// If no chest data found
 			GameLevelManager* glm = GameLevelManager::sharedState();
 			glm->getGJRewards(0);
 		}
+
+		GameStatsManager* gsm;
+
+		gsm = GameStatsManager::sharedState();
 
 		int time1_value = 0x1;
 		int time2_value = 0x2;
@@ -46,5 +46,18 @@ class $modify(MyMenuLayer, MenuLayer) {
 		mark->setID("mark"_spr);
 
 		return true;
+	}
+};
+
+#include <Geode/modify/RewardsPage.hpp>
+class $modify(MyRewardsPage, RewardsPage) {
+	void rewardsStatusFinished(int a1) {
+		//kostыli for hiding the mark after opening everything
+		if (this->m_leftOpen == false || this->m_rightOpen == false) {
+			auto scene = CCDirector::sharedDirector()->getRunningScene();
+			scene->getChildByID("MenuLayer")->getChildByID("right-side-menu")->getChildByID("daily-chest-button")->getChildByID("mark"_spr)->setVisible(false);
+		}
+
+		RewardsPage::rewardsStatusFinished(a1);
 	}
 };
