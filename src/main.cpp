@@ -44,7 +44,7 @@ class $modify(MyMenuLayer, MenuLayer) {
 		menu->addChild(mark);
 
 		mark->setID("mark"_spr);
-
+		
 		return true;
 	}
 };
@@ -55,7 +55,8 @@ class $modify(MyRewardsPage, RewardsPage) {
 		//kostыli for hiding the mark after opening everything
 		if (this->m_leftOpen == false || this->m_rightOpen == false) {
 			auto scene = CCDirector::sharedDirector()->getRunningScene();
-			scene->getChildByID("MenuLayer")->getChildByID("right-side-menu")->getChildByID("daily-chest-button")->getChildByID("mark"_spr)->setVisible(false);
+			auto dcb = scene->getChildByID("MenuLayer")->getChildByIDRecursive("daily-chest-button");
+			dcb->getChildByID("mark"_spr)->setVisible(false);
 		}
 
 		RewardsPage::rewardsStatusFinished(a1);
