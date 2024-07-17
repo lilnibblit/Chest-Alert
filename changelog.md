@@ -6,4 +6,4 @@
 * changed $execute to $on_mod(Loaded)
 
 ## <cg>v1.0.0</c>
-* mod
+* Initial Release
