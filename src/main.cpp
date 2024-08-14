@@ -40,7 +40,7 @@ class $modify(MyMenuLayer, MenuLayer) {
 			}
 		}
 
-		auto menu = this->getChildByID("right-side-menu")->getChildByID("daily-chest-button");
+		auto menu = this->getChildByIDRecursive("daily-chest-button");
 		menu->addChild(mark);
 
 		mark->setID("mark"_spr);
@@ -56,7 +56,7 @@ class $modify(MyRewardsPage, RewardsPage) {
 		if (this->m_leftOpen == false || this->m_rightOpen == false) {
 			auto scene = CCDirector::sharedDirector()->getRunningScene();
 			auto dcb = scene->getChildByID("MenuLayer")->getChildByIDRecursive("daily-chest-button");
-			dcb->getChildByID("mark"_spr)->setVisible(false);
+			if (dcb) dcb->getChildByID("mark"_spr)->setVisible(false);
 		}
 
 		RewardsPage::rewardsStatusFinished(a1);
