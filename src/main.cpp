@@ -55,7 +55,7 @@ class $modify(MyRewardsPage, RewardsPage) {
 		//kostыli for hiding the mark after opening everything
 		if (this->m_leftOpen == false || this->m_rightOpen == false) {
 			auto scene = CCDirector::sharedDirector()->getRunningScene();
-			auto dcb = scene->getChildByID("MenuLayer")->getChildByIDRecursive("daily-chest-button");
+			auto dcb = scene->getChildByIDRecursive("daily-chest-button");
 			if (dcb) dcb->getChildByID("mark"_spr)->setVisible(false);
 		}
 
