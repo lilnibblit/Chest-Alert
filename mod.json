@@ -1,5 +1,5 @@
 {
-	"geode": "4.0.0-beta.1",
+	"geode": "4.0.1",
 	"gd": {
 		"win": "2.2074",
 		"android": "2.2074",
@@ -7,7 +7,7 @@
 	},
 	"id": "lilnibblit.chestalert",
 	"name": "Chest Alert",
-	"version": "v1.0.5",
+	"version": "v1.0.6",
 	"developer": "lilnibblit",
 	"description": "This mod spawns exclamation mark near the chests button if you have chest(s) ready.",
 	"tags": ["interface"],
